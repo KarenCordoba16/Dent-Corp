@@ -1,4 +1,20 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
+from DentCorpProject import settings
+from django.utils.translation import gettext_lazy as _
+
+class User(AbstractUser):
+    image = models.ImageField(upload_to='users/%Y/%m/%d', null=True, blank=True)
+    email = models.EmailField(_('email adress'), unique=True)
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    def get_image(self):
+        if self.image:
+            return '{}{}'.format(settings.MEDIA_URL, self.image)
+        
+        return '{}{}'.format(settings.STATIC_URL, 'img/user-default.png')
 
 class Especialidades(models.Model):
     nombre_espec = models.CharField(max_length=50)
