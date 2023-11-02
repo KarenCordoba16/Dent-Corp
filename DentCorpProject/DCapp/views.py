@@ -1,9 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
 def Inicio(request):
-    datos = {
-        'bienvenida': 'Bienvenidos/as a Dent Corp'
-    }
-
-    return render(request, 'index.html', datos)
+    return HttpResponse('<h1>Bienvenid@</h1>')
