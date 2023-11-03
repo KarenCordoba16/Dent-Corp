@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, Group, Permission
 from DentCorpProject import settings
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
+import uuid
 
 class User(AbstractUser):
     # groups = models.ManyToManyField(Group, related_name='dcapp_users_groups')
