@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Calendario de turnos {% endblock %}
+
+{% block content %}
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevMonth">Anterior</button>
+            <h1 id="monthYearDisplay">Noviembre 2023</h1>
+            <button id="nextMonth">Siguiente</button>
+        </div>
+        <table id="calendarTable">
+            <thead>
+                <tr>
+                    <th>Domingo</th>
+                    <th>Lunes</th>
+                    <th>Martes</th>
+                    <th>Miércoles</th>
+                    <th>Jueves</th>
+                    <th>Viernes</th>
+                    <th>Sábado</th>
+                </tr>
+            </thead>
+            <tbody id="calendarBody">
+                <!-- Aquí puedes generar dinámicamente las celdas del calendario -->
+                <!-- Por ejemplo, puedes utilizar un bucle para generar las fechas y los turnos -->
+                {% for week in calendar_data %}
+                    <tr>
+                        {% for day in week %}
+                            <td>
+                                {{ day.date }}
+                                <!-- Aquí puedes mostrar los turnos para esta fecha -->
+                                {% for turno in day.turnos %}
+                                    {{ turno }}
+                                {% endfor %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}

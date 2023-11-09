@@ -17,16 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
-from DCapp.views import register
+from DCapp.views import register, login_required
 from django.conf import settings
 from django.conf.urls.static import static
+from calendario_app.views import agregar_turno
 
 urlpatterns = [
     path('',RedirectView.as_view(url='/dcapp/')),
-    path('dcapp/admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('dcapp/', include('DCapp.urls')),
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('django.contrib.auth.urls')), #no funciona
     path('accounts/register/', register, name='register'),
+    path('calendario_app/', include('calendario_app.urls')),
+    path('agregar_turno/', agregar_turno, name="agregar_turno"),
+    path('accounts/login/', login_required, name='login'),
 ]
 
 if settings.DEBUG:

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md bg-dark" data-bs-theme="dark">
     <div class="containter">
-        <a class="navbar-brand" href="{% url 'home' %}">Catálogo</a>
+        <a class="navbar-brand" href="">Dent Corp</a>
 
         <button 
             class="navbar-toogler"
@@ -19,7 +19,7 @@
                 {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" {% if request.resolver_match.url_name == 'home' %}active{% endif %} 
-                        href="{% url 'home' %}">Inicio</a>
+                        href="">Inicio</a>
                     </li>
                     <li class="nav-item dropdown-toogle">
                         <a

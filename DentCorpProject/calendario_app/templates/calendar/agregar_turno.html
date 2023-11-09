@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Reserva de turnos {% endblock %}
+
+{% block content %}
+
+<body>
+    <h1>Agregar Turno</h1>
+    <form method="post">
+        {% csrf_token %}
+        <!-- Aquí puedes agregar campos para ingresar detalles del turno -->
+        <button type="submit">Guardar Turno</button>
+    </form>
+</body>
+</html>
+{% endblock %}

@@ -3,10 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import CustomUserCreationForm
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 
-def Inicio(request):
-    return HttpResponse('<h1>Bienvenid@</h1>')
 
 def register(request):
     if request.method == 'GET':
